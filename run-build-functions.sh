@@ -56,6 +56,7 @@ mkdir -p $NETLIFY_CACHE_DIR/.netlify
 mkdir -p $NETLIFY_CACHE_DIR/.netlify/plugins
 
 # HOME caches
+mkdir -p $NETLIFY_CACHE_DIR/.elm
 mkdir -p $NETLIFY_CACHE_DIR/.yarn_cache
 mkdir -p $NETLIFY_CACHE_DIR/.cache/pip
 mkdir -p $NETLIFY_CACHE_DIR/.cask
@@ -642,6 +643,12 @@ install_dependencies() {
     composer install
   fi
 
+  # Elm
+  if [ -f elm.json ]
+  then
+    restore_home_cache ".elm" "ELM_HOME"
+  fi
+
   # Go version
   restore_home_cache ".gimme_cache" "go cache"
   if [ -f .go-version ]
@@ -708,6 +715,7 @@ cache_artifacts() {
     cache_cwd_directory_fast_copy "target" "rust compile output"
   fi
 
+  cache_home_directory ".elm" "ELM_HOME"
   cache_home_directory ".yarn_cache" "yarn cache"
   cache_home_directory ".cache/pip" "pip cache"
   cache_home_directory ".cask" "emacs cask dependencies"
