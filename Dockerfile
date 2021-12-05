@@ -253,7 +253,7 @@ RUN git clone https://github.com/creationix/nvm.git ~/.nvm && \
     git checkout v$NVM_VERSION && \
     cd /
 
-ENV ELM_VERSION=0.19.1-5
+ENV ELM_VERSION=0.19.1
 ENV YARN_VERSION=1.22.10
 
 ENV NETLIFY_NODE_VERSION="16"

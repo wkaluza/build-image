@@ -64,6 +64,8 @@ The specific patch versions included will depend on when the image was last buil
     * stable
   * Boot
     * 2.5.2
+* Elm - `ELM_VERSION`
+  * 0.19.1
 * Hugo - `HUGO_VERSION`
   * 0.82 extended (default)
   * Any version installable via `binrc`.

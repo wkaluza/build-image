@@ -26,3 +26,8 @@ setup() {
   run bower --version
   assert_success
 }
+
+@test 'elm is installed and available at startup' {
+  run elm --version
+  assert_success
+}
